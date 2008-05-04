@@ -1,0 +1,97 @@
+#N canvas 203 24 624 646 10;
+#X obj 41 4 inlet;
+#X obj 213 55 inlet id;
+#X obj 39 588 outlet broadcast;
+#X obj 41 23 string2any;
+#X obj 41 129 list split 1;
+#X obj 80 151 list trim;
+#X obj 80 253 unpack 0 0;
+#X obj 39 495 list trim;
+#X obj 118 431 symbol;
+#X obj 80 281 t f f;
+#X obj 80 172 route motion map;
+#X obj 244 208 matchbox;
+#X msg 244 188 dump;
+#X msg 118 451 list \$1.c;
+#X obj 39 474 list prepend;
+#X obj 39 403 t l;
+#X obj 133 194 route 1;
+#X obj 133 214 bang;
+#X obj 213 94 t f f;
+#X obj 295 186 list;
+#X obj 41 78 t a a;
+#X obj 80 323 - 3;
+#X obj 110 323 - 3;
+#X obj 244 229 t f f;
+#X obj 244 274 pack 0 s;
+#X msg 244 297 list create rectangle 100 100 100 100 -fill \$2 -tags
+\$1_cursor;
+#X obj 80 382 pack 0 0 0 0 0;
+#X msg 81 404 list coords \$5_cursor \$1 \$2 \$3 \$4;
+#X obj 279 250 id2color_;
+#X obj 39 548 any2string_CRLF;
+#X obj 149 324 + 4;
+#X obj 173 324 + 4;
+#X obj 39 520 ppprint pre_a2s;
+#X obj 39 569 ppprint posta2s;
+#N canvas 316 158 450 438 README 0;
+#X text 43 369 (c) 2007 IOhannes m zmoelnig;
+#X text 67 37 draw the participants cursors;
+#X text 38 62 in order to have some feedback on what the others are
+doing \, we want to know where their cursors currently are.;
+#X text 37 104 the idea is rather straight-forward:;
+#X text 46 132 whenever a new window is created \, we create a "cursor"
+(a coloured square) for each connected client in this window.;
+#X text 46 154 (clour and widget-id depend on the socket-id of the
+client);
+#X text 43 176 whenever a user moves their pointer within a window
+\, we grab this info from the gui->dsp stream and move the "cursor"s
+on all clients to the new position.;
+#X text 43 214 the dsp need not know anything about this.;
+#X text 47 247 caveats: no way to guarantee that a user gets the same
+cursor after a re-connect (good too \, as it allows multiple connections/cursors
+from the same IP.;
+#X text 48 290 TODO: make the cursor vanish \, when the user leaves
+the window (currently it just hangs around until we re-enter the window)
+;
+#X restore 343 57 pd README;
+#X connect 0 0 3 0;
+#X connect 1 0 18 0;
+#X connect 3 0 20 0;
+#X connect 4 1 5 0;
+#X connect 5 0 10 0;
+#X connect 6 0 9 0;
+#X connect 6 1 22 0;
+#X connect 6 1 31 0;
+#X connect 7 0 32 0;
+#X connect 8 0 13 0;
+#X connect 9 0 21 0;
+#X connect 9 1 30 0;
+#X connect 10 0 6 0;
+#X connect 10 1 16 0;
+#X connect 11 0 23 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 1;
+#X connect 14 0 7 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 12 0;
+#X connect 18 0 26 4;
+#X connect 18 1 19 0;
+#X connect 19 0 11 1;
+#X connect 20 0 4 0;
+#X connect 20 1 8 0;
+#X connect 21 0 26 0;
+#X connect 22 0 26 1;
+#X connect 23 0 24 0;
+#X connect 23 1 28 0;
+#X connect 24 0 25 0;
+#X connect 25 0 15 0;
+#X connect 26 0 27 0;
+#X connect 27 0 15 0;
+#X connect 28 0 24 1;
+#X connect 29 0 33 0;
+#X connect 30 0 26 2;
+#X connect 31 0 26 3;
+#X connect 32 0 29 0;
+#X connect 33 0 2 0;

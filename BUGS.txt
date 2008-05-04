@@ -1,0 +1,14 @@
+often crashes when in use with x86_64 !!!
+
+TIMEOUT: how to reliable set the tcp/ip timeout to a low value:
+	echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle
+
+DSP:
+	notify clients of running dsp?
+	how to setup the pd-paths so we find e.g. the testtone?
+		cd /usr/local/lib/pd && pd -guiport 5500
+
+
+PROXY:	still sometimes crashes...
+	(things have gone better with the newest pdstring library)
+

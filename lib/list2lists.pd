@@ -1,0 +1,12 @@
+#N canvas 751 385 450 300 10;
+#X obj 82 199 inlet;
+#X obj 82 228 outlet;
+#X obj 183 197 inlet;
+#X text 52 68 dummy [list2lists] object;
+#X obj 79 149 print ERROR;
+#X msg 79 118 please install a recent version of zexy that contains
+[list2lists];
+#X obj 79 100 loadbang;
+#X connect 0 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;

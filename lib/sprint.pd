@@ -1,0 +1,18 @@
+#N canvas 0 0 450 300 10;
+#X declare -lib pdstring;
+#X obj 134 123 inlet;
+#X obj 134 195 string2any;
+#X obj 134 217 print \$1;
+#X obj 109 37 declare -lib pdstring;
+#X obj 180 103 r \$1-debug;
+#X obj 134 167 spigot 0;
+#X obj 100 115 tgl 15 0 \$1-debug \$1-debug empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 180 120 t f;
+#X text 65 66 just a debugging print for pdstrings.;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 1 0;
+#X connect 7 0 5 1;
+#X coords 0 -1 1 1 20 30 1 100 100;

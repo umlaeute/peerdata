@@ -1,0 +1,7 @@
+#N canvas 0 0 450 300 10;
+#X obj 81 90 tcpserver 5500;
+#X obj 79 125 tcpserver 5600;
+#X obj 203 87 tcpserver \$1;
+#X obj 204 125 tcpserver \$1;
+#X text 299 85 1 change \$1 to 5500;
+#X text 299 126 2 change \$1 to 5600;

@@ -1,0 +1,17 @@
+#N canvas 169 207 673 620 10;
+#X obj 84 65 inlet rawdata;
+#X obj 188 65 inlet symdata;
+#X obj 84 541 outlet rawdata;
+#X obj 188 541 outlet symdata;
+#X text 96 20 this is a dummy filter \, that passes all data;
+#X obj 188 165 t a a;
+#X obj 213 189 print filter\$1;
+#X obj 369 532 s PROXY_guipost;
+#X msg 369 513 ...;
+#X text 281 499 probably a bad idea to send this back tothe pd-gui:
+loads of trafficke..;
+#X connect 0 0 2 0;
+#X connect 1 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 6 0;
+#X connect 8 0 7 0;

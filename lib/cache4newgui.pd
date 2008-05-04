@@ -1,0 +1,102 @@
+#N canvas 60 0 836 572 10;
+#X declare -lib pdstring;
+#X declare -lib pdstring;
+#X obj 63 412 list prepend 0;
+#X obj 255 75 t f f;
+#N canvas 0 0 450 300 validate 0;
+#X obj 64 37 inlet;
+#X obj 64 86 > 0;
+#X obj 64 60 t f;
+#X obj 64 106 select 1;
+#X obj 64 131 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X restore 255 95 pd validate;
+#X obj 255 56 inlet;
+#X text 43 462 <windowID> map 0 \; <windowID> map 1 \;;
+#X text 43 490 pE.".x8142d70 map 0 \; .x8142d70 map 1 \; ";
+#X obj 106 118 string2any;
+#X obj 63 221 spigot 1;
+#X msg 106 196 0;
+#X obj 63 325 messbuffer;
+#X obj 255 116 t b b;
+#X obj 106 177 t b;
+#X obj 63 28 inlet dspdata;
+#X obj 63 437 outlet 2gui;
+#X obj 255 367 outlet 2dsp;
+#X msg 11 255 bang;
+#X obj 106 95 splitDSPmsg;
+#X obj 63 352 t a;
+#X obj 63 71 t a a a;
+#X obj 63 242 t a b;
+#X obj 139 233 delay 1000;
+#X obj 141 314 print;
+#X msg 141 294 closing DSP cache;
+#X obj 63 383 demux;
+#X obj 93 364 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 292 236 <--------;
+#X text 362 236 assume that after 1 second the dsp is initialized.
+do NOT connect the gui before...;
+#X obj 371 266 r PROXYgui_deletedwindow;
+#X obj 106 156 route pdtk_pd_dio pdtk_canvas_new destroy;
+#X obj 130 368 sprint messbuf;
+#X obj 255 278 windowmanager;
+#N canvas 230 240 450 342 README 0;
+#X text 45 298 (c) 2007 IOhannes m zmoelnig;
+#X text 53 25 the [cache4newgui] is an infrastructure that holds all
+the information to synch a newly connected gui with the engine.;
+#X text 54 65 what it does it pretty simple:;
+#X text 64 82 to get the gui running smoothly \, we cache the first
+bits of information the engine will send (this is mainly about which
+audio/midi APIs are available and which one is used);
+#X text 62 119 this is to make sure \, that we can tweak the sound
+settings a bit;
+#X text 43 150 the more interesting part is about synching windows:
+;
+#X text 66 170 we just track which windows currently exist (windows
+that have been created and not yet destroyed). when a new gui connects
+\, we tell it to create these windows (with the correct window-ids)
+and then tell the engine to redraw all these windows (by faking a close/open
+(map/unmap) operation);
+#X text 44 240 that is rather cool \, as we don't need much memory
+;
+#X restore 401 80 pd README;
+#X obj 139 256 t b b;
+#X obj 182 255 s PROXYdsp_initialized;
+#X connect 0 0 13 0;
+#X connect 1 0 2 0;
+#X connect 1 1 0 1;
+#X connect 2 0 10 0;
+#X connect 3 0 1 0;
+#X connect 6 0 28 0;
+#X connect 7 0 19 0;
+#X connect 8 0 7 1;
+#X connect 9 0 17 0;
+#X connect 10 0 30 0;
+#X connect 10 1 9 0;
+#X connect 11 0 8 0;
+#X connect 12 0 18 0;
+#X connect 15 0 9 0;
+#X connect 16 0 6 0;
+#X connect 17 0 23 0;
+#X connect 17 0 29 0;
+#X connect 18 0 7 0;
+#X connect 18 1 16 0;
+#X connect 19 0 9 0;
+#X connect 19 1 20 0;
+#X connect 20 0 8 0;
+#X connect 20 0 32 0;
+#X connect 22 0 21 0;
+#X connect 23 0 0 0;
+#X connect 24 0 23 1;
+#X connect 27 0 30 2;
+#X connect 28 0 11 0;
+#X connect 28 1 30 1;
+#X connect 28 2 30 2;
+#X connect 30 0 14 0;
+#X connect 30 1 17 0;
+#X connect 32 0 22 0;
+#X connect 32 1 33 0;

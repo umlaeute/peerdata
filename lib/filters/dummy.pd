@@ -1,0 +1,49 @@
+#N canvas 169 207 673 620 10;
+#X obj 84 65 inlet rawdata;
+#X obj 188 65 inlet symdata;
+#X obj 84 541 outlet rawdata;
+#X obj 188 541 outlet symdata;
+#X text 96 20 this is a dummy filter \, that passes all data;
+#X text 98 157 inlet1: rawdata: this is the rawdata that is to be filtered
+;
+#X text 102 270 outlet1: the rawdata \, if the filter choses to pass
+the data. if the filter decides to filter the data out \, there will
+be nothing at this outlet;
+#X text 98 175 inlet2: this is the data on which we match the filter
+rules;
+#X text 101 307 outlet2: the match data (if the filter choses to pass
+the data). if the filter does not pass the rawdata (outlet1) \, then
+it can also suppress the symdata (since the following filters need
+no symdata to filter non-existant rawdata);
+#X obj 84 522 spigot;
+#X obj 188 522 spigot;
+#X obj 115 492 f;
+#X msg 115 440 1;
+#X msg 206 440 0;
+#X obj 206 418 t b b;
+#X msg 334 523 error;
+#N canvas 0 0 450 300 matcher 0;
+#X text 93 128 we don't care;
+#X obj 101 256 outlet matches!;
+#X obj 101 34 inlet symdata;
+#X restore 206 131 pd matcher;
+#X obj 188 103 t a a b;
+#X obj 334 542 s PROXY_guipost;
+#X text 103 363 error-callback: if the filter matches and thus suppresses
+data \, it is advisable to send an error-message to "PROXY_guipost"
+\, so the pd-guis will get informed of the filtering;
+#X connect 0 0 9 0;
+#X connect 1 0 17 0;
+#X connect 9 0 2 0;
+#X connect 10 0 3 0;
+#X connect 11 0 9 1;
+#X connect 11 0 10 1;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 14 0 13 0;
+#X connect 14 1 15 0;
+#X connect 15 0 18 0;
+#X connect 16 0 14 0;
+#X connect 17 0 10 0;
+#X connect 17 1 16 0;
+#X connect 17 2 12 0;

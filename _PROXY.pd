@@ -1,0 +1,32 @@
+#N canvas 386 72 657 397 10;
+#X declare -lib pdstring;
+#X declare -lib pdstring;
+#X declare -lib pdstring;
+#X declare -lib pdstring;
+#X declare -lib pdstring;
+#X declare -lib pdstring;
+#X declare -lib tcpserver:pdstring;
+#X obj 102 281 PROXY 5500 5600;
+#X obj 353 349 declare -lib tcpserver:pdstring;
+#N canvas 0 0 450 300 startDSP 0;
+#X obj 110 227 netsend 1;
+#X msg 110 208 connect localhost 5555 \, send bang \, disconnect;
+#X obj 110 159 r PROXY_startDSP;
+#X obj 110 179 t b a;
+#X obj 148 178 print PROXY:startDSP;
+#X text 40 42 on startup we want the dsp-engine to start (but not before)
+;
+#X text 37 69 (this does not yet work \, but we leave it here);
+#X text 47 121 the main idea is to not rely on [shell] to start an
+external application \, but use "pdreceive" to wait for a message from
+us and start a program....;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 4 0;
+#X restore 97 339 pd startDSP;
+#X text 63 53 multipd: a proxy to connect multiple pd-gui's with one
+(or several) pd-engines.;
+#X text 65 89 (c) 2007 IOhannes m zmoelnig;
+#X text 65 106 this application is licensed under the GNU General Public
+License (version 2 or later);

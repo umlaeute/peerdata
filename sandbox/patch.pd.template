@@ -1,0 +1,11 @@
+#N canvas 0 0 450 300 10;
+#N canvas 574 207 450 300 autosave 0;
+#X obj 62 57 loadbang;
+#X msg 62 94 \; pd-patch.pd menusave;
+#X obj 62 75 metro 10000;
+#X obj 273 58 zexy;
+#X obj 267 98 iemlib1;
+#X obj 261 124 iemlib2;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 78 48 pd autosave;

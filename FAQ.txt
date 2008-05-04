@@ -1,0 +1,29 @@
+TCP/IP:
+	Q: when the proxy crashes and i restart it, i get a "tcpserver: port already in 
+		use" and the [tcpserver] can not create; the proxy does not work
+	A: tell the kernel that it should release the socket
+		echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle
+	   (there is a script "setup_tcp.sh" that does this for you)
+
+
+ENGINE:
+	Q: i started the engine with "./startDSP.sh". everything works fine
+	   but i cannot open the "test audio and midi" patch
+	A: there is some problem with pd's path. instead of using the
+	   startDSP.sh, you could manually start the engine with something like
+		cd /usr/local/lib/pd && pd -guiport 5500
+
+	Q: i want to run the engine on a different computer as the proxy.
+	   how do i specify the proxy-<host> when starting the engine?
+	A: this is a bit tricky, as you cannot do this directly with the pd binary
+	   the solution is port-forwarding! i can think of 2 ways to achieve this:
+		a) use ssh's built-in port-forwarding mechanism (you need an ssh-login 
+		   on the proxy-machine)
+		    me@engine:> ssh -L 5500:localhost:5500 user@engine
+		b) use netcat (no need for a login on the proxy-machine!)
+		    me@engine:> mknod pipe p
+		    me@engine:> netcat -l -p 5500 < pipe | netcat engine 5500 > pipe
+		   a more elaborate netcat-based port-forwarder can be found in the script
+		   "ncPROXY.sh" (you have to modify it first to fit your needs; it also
+		   does logging of the in/out streams)
+	

@@ -1,0 +1,15 @@
+#N canvas 0 0 450 300 10;
+#X obj 140 152 fifop;
+#X obj 140 75 inlet;
+#X obj 140 94 route bang;
+#X obj 140 115 b;
+#X msg 140 133 dump;
+#X obj 140 171 outlet;
+#X text 77 36 LATER: think about filtering out unneeded messages...
+;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
