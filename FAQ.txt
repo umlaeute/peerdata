@@ -27,3 +27,19 @@ ENGINE:
 		   "ncPROXY.sh" (you have to modify it first to fit your needs; it also
 		   does logging of the in/out streams)
 	
+RUNNING:
+	Q: hmm, it doesn't seem to work
+	A: try this:
+	   start the proxy
+	   start the DSP manually
+		% cd /usr/local/lib/pd
+		% pd -guiport 5500 -lib ~/pd/peerdata/x86_64/zexy /tmp/patch.pd
+	
+	   start the GUI manually
+	   	% cd /usr/local/lib/pd
+		% ./bin/pd-gui 5600 <proxyhost>
+
+	Q: peerdata keeps crashing, what can i do?
+	A: it seems that running the proxy within a protected environment (e.g. in valgrind)
+	   makes it much more stable
+	A1: yes, there is a bug which I haven't found yet
