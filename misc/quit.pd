@@ -1,0 +1,6 @@
+#N canvas 202 148 450 300 10;
+#X obj 153 97 netsend 1;
+#X msg 153 70 connect localhost 6666 \, send quit;
+#X obj 153 44 loadbang;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;

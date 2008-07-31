@@ -1,0 +1,11 @@
+#N canvas 202 148 450 300 10;
+#X obj 164 108 catch~ 1_DAC;
+#X obj 165 131 hip~ 5;
+#X obj 165 159 dac~ 1;
+#X obj 268 132 hip~ 5;
+#X obj 268 160 dac~ 2;
+#X obj 267 109 catch~ 2_DAC;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 5 0 3 0;

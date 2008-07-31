@@ -1,4 +1,4 @@
-#N canvas 386 72 657 397 10;
+#N canvas 541 224 657 397 10;
 #X declare -lib pdstring;
 #X declare -lib pdstring;
 #X declare -lib pdstring;
@@ -30,3 +30,10 @@ us and start a program....;
 #X text 65 89 (c) 2007 IOhannes m zmoelnig;
 #X text 65 106 this application is licensed under the GNU General Public
 License (version 2 or later);
+#X obj 334 240 netreceive 6666 1;
+#X obj 334 259 route quit;
+#X obj 334 278 t b;
+#X msg 334 299 \; pd quit;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;

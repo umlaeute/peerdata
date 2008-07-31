@@ -1,0 +1,6 @@
+#N canvas 0 0 450 300 10;
+#X msg 62 94 \; pd-patch.pd menusave;
+#X obj 62 75 metro 10000;
+#X obj 62 55 loadbang;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
