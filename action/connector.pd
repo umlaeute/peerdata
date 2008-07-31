@@ -71,7 +71,6 @@
 #X obj 523 7 loadbang;
 #X msg 587 8 bang;
 #X symbolatom 574 91 10 0 0 0 - - -;
-#X obj 199 73 r tick_connector;
 #X obj 198 428 filter_mindist 200;
 #X obj 198 515 t f;
 #X text 202 448 <x> <y> <id>;
@@ -79,6 +78,9 @@
 #X text 111 543 connect to:;
 #X obj 418 799 s connect;
 #X obj 419 773 list prepend \$0;
+#X obj 259 71 r tick_connector_time;
+#X obj 199 91 metro 100;
+#X obj 199 71 loadbang;
 #X connect 0 0 44 0;
 #X connect 2 0 48 0;
 #X connect 2 1 1 1;
@@ -102,10 +104,10 @@
 #X connect 16 1 18 2;
 #X connect 17 0 19 1;
 #X connect 18 0 17 0;
-#X connect 19 0 56 0;
+#X connect 19 0 55 0;
 #X connect 20 0 49 0;
 #X connect 20 1 17 1;
-#X connect 21 0 57 0;
+#X connect 21 0 56 0;
 #X connect 22 0 50 0;
 #X connect 23 0 31 0;
 #X connect 24 0 21 0;
@@ -131,7 +133,7 @@
 #X connect 37 0 34 0;
 #X connect 38 0 37 1;
 #X connect 40 0 39 0;
-#X connect 40 1 62 0;
+#X connect 40 1 61 0;
 #X connect 41 0 40 0;
 #X connect 42 0 40 0;
 #X connect 44 0 46 0;
@@ -147,7 +149,9 @@
 #X connect 51 0 11 0;
 #X connect 52 0 51 0;
 #X connect 53 0 51 0;
-#X connect 55 0 45 0;
-#X connect 56 0 24 0;
-#X connect 57 0 23 0;
-#X connect 62 0 61 0;
+#X connect 55 0 24 0;
+#X connect 56 0 23 0;
+#X connect 61 0 60 0;
+#X connect 62 0 63 1;
+#X connect 63 0 45 0;
+#X connect 64 0 63 0;
