@@ -1,0 +1,22 @@
+#N canvas 0 0 678 300 10;
+#X obj 194 159 abstraction;
+#X msg 552 60 bang;
+#X obj 567 165 abstraction;
+#X obj 609 60 t b b;
+#X obj 572 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 606 35 metro 100;
+#X obj 611 93 s tick_mover;
+#X obj 567 134 s tick_connector;
+#N canvas 449 198 450 300 sub 0;
+#X obj 178 70 mover;
+#X obj 35 60 inlet;
+#X obj 6 157 outlet;
+#X obj 189 127 connector;
+#X restore 607 82 pd sub;
+#X connect 1 0 3 0;
+#X connect 2 0 8 0;
+#X connect 3 0 7 0;
+#X connect 3 1 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;

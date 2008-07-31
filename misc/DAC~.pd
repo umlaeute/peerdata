@@ -1,0 +1,7 @@
+#N canvas 0 0 450 300 10;
+#X obj 147 125 inlet~;
+#X obj 207 122 inlet~;
+#X obj 152 176 throw~ 1_DAC;
+#X obj 206 145 throw~ 2_DAC;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;

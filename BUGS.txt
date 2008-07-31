@@ -12,3 +12,8 @@ DSP:
 PROXY:	still sometimes crashes...
 	(things have gone better with the newest pdstring library)
 
+
+	it still crashes - most likely due to the pdstring lib
+	running the proxy within "valgrind" does not crash
+	running the proxy in gdb crashes, but reveals problems with pdstring
+
