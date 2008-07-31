@@ -7,7 +7,7 @@
 #X obj 80 151 list trim;
 #X obj 80 253 unpack 0 0;
 #X obj 39 495 list trim;
-#X obj 118 431 symbol;
+#X obj 118 429 symbol;
 #X obj 80 281 t f f;
 #X obj 80 172 route motion map;
 #X obj 244 208 matchbox;
@@ -27,7 +27,7 @@
 #X msg 244 297 list create rectangle 100 100 100 100 -fill \$2 -tags
 \$1_cursor;
 #X obj 80 382 pack 0 0 0 0 0;
-#X msg 81 404 list coords \$5_cursor \$1 \$2 \$3 \$4;
+#X msg 80 404 list coords \$5_cursor \$1 \$2 \$3 \$4;
 #X obj 279 250 id2color_;
 #X obj 39 548 any2string_CRLF;
 #X obj 149 324 + 4;
@@ -55,6 +55,17 @@ from the same IP.;
 the window (currently it just hangs around until we re-enter the window)
 ;
 #X restore 343 57 pd README;
+#X symbolatom 206 453 10 0 0 0 - - -;
+#X msg 294 490 list configure -background #DDDDDD;
+#X msg 301 515 list configure -background #FFFFFF;
+#X obj 330 461 select 0 1;
+#X obj 358 417 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 357 394 metro 1000;
+#X obj 357 367 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 252 529 t l;
+#X msg 186 431 bang;
 #X connect 0 0 3 0;
 #X connect 1 0 18 0;
 #X connect 3 0 20 0;
@@ -65,6 +76,7 @@ the window (currently it just hangs around until we re-enter the window)
 #X connect 6 1 31 0;
 #X connect 7 0 32 0;
 #X connect 8 0 13 0;
+#X connect 8 0 35 0;
 #X connect 9 0 21 0;
 #X connect 9 1 30 0;
 #X connect 10 0 6 0;
@@ -95,3 +107,12 @@ the window (currently it just hangs around until we re-enter the window)
 #X connect 31 0 26 3;
 #X connect 32 0 29 0;
 #X connect 33 0 2 0;
+#X connect 36 0 42 0;
+#X connect 37 0 42 0;
+#X connect 38 0 36 0;
+#X connect 38 1 37 0;
+#X connect 39 0 38 0;
+#X connect 40 0 39 0;
+#X connect 41 0 40 0;
+#X connect 42 0 14 0;
+#X connect 43 0 8 0;

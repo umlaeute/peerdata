@@ -2,4 +2,7 @@
 
 ARCHLIBDIR=$(uname -m)
 
-pd -nosound -nomidi -stderr -path ${ARCHLIBDIR}:lib:. -lib zexy -send "${SENDMESSAGE}" -open _PROXY.pd $@
+RUN_ENVIRONMENT=$(which valgrind)
+
+
+${RUN_ENVIRONMENT} pd -nosound -nomidi -stderr -path ${ARCHLIBDIR}:lib:. -lib zexy -send "${SENDMESSAGE}" -open _PROXY.pd $@

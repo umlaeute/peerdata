@@ -1,3 +1,16 @@
 startup:
 	hannes: dac~-patch
 	georg : beat-patch
+
+
+starting:
+	+---
+	  startPROXY.sh
+	+---
+	  cd /usr/local/lib/pd
+	  . ~/pd/peerdata/sourceme_dsp.sh
+	+---
+	  cd /usr/local/lib/pd
+	  ./bin/pd-gui 5600
+	+---
+
