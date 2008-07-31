@@ -1,5 +1,0 @@
-#N canvas 0 0 450 300 10;
-#X obj 198 175 mover;
-#X obj 62 112 inlet;
-#X obj 64 187 outlet;
-#X obj 260 178 connector;
