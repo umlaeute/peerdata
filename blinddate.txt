@@ -14,3 +14,7 @@ starting:
 	  ./bin/pd-gui 5600
 	+---
 
+
+Georg daheim:
+	tunnel tcp:5600 von einer public IP:
+		ssh -R :5600:localhost:5600 zmoelnig@umlaeute.mur.at

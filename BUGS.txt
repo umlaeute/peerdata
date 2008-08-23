@@ -17,3 +17,17 @@ PROXY:	still sometimes crashes...
 	running the proxy within "valgrind" does not crash
 	running the proxy in gdb crashes, but reveals problems with pdstring
 
+	more info:
+		the [list2lists] objects sometimes gets negative list-lengths (e.g. "-5919")
+		which it cannot really handle;
+		so there seem to be 2 bugs involved:
+			[list2lists] should not crash: FIXED
+			[listfind] should correctly report list indices: FIXED
+			[splitDSPmsg] should never ask for negative list-lengths (it does so when the searched sub-list is not contained in the sup-list) TODO
+
+VISUAL EDITING:
+	it would be nice if one could see immediately whether a window is currently been
+	edited by someone else
+	- idea: change background of window when editing (mouse movement);
+	  change back to default after a certain timeout
+	- it would also be nice if the [pd object]s currently being edited would change colors
