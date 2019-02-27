@@ -2,7 +2,7 @@ multipd - a collaborative patching system for and in Pd.
 =======
 
 authors:
-	IOhannes m zmölnig
+	IOhannes m zmÃ¶lnig
 	with help/ideas/... by pd-graz (Peter Plessas, Georg Holzmann, Florian Hollerweger et al.)
 
 license:
@@ -42,7 +42,7 @@ dependencies:
 	(pure-data repository /externals/mrpeach/net/)
    - pdstring (by bryan jurish), >=0.05
 	(pure-data repository /externals/moocow/pdstring/)
-   - zexy (by IOhannes m zmölnig), >=2.3
+   - zexy (by IOhannes m zmÃ¶lnig), >=2.3
 	(pure-data repository /externals/zexy/)
  
 
