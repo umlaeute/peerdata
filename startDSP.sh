@@ -4,4 +4,4 @@ PATCH=""
 
 test -e /tmp/patch-template.pd && PATCH=/tmp/patch-template.pd
 
-pd -guiport 5500 
+pd -guiport 5500 "$@"
